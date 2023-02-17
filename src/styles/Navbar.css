@@ -1,0 +1,38 @@
+.nav{
+    display: flex;
+    width:100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: blue;
+}
+
+.nav>h2>*{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.nav>div>*{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    margin-left: 10px;
+    cursor: pointer;   
+}
+
+.btn{
+    color:white;
+    border: none;
+    background-color: blueviolet;
+    padding: 8px 15px;
+    border-radius: 15px;
+}
+
+.btn:hover{
+    color:blueviolet;
+    background-color: white;
+}

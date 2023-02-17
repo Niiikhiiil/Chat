@@ -1,25 +1,61 @@
-import logo from './logo.svg';
+import React, { useContext } from 'react';
+import {
+	BrowserRouter,
+	Routes,
+	Route,
+	// useNavigate,
+	Navigate,
+	Outlet,
+} from 'react-router-dom';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 import './App.css';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import Profile from './components/Profile.jsx';
+import AuthProvider, { AuthContext } from './context/auth';
+// import PrivateRoute from './components/PrivateRoute';
+// import { auth, db } from './Firebase';
+// import { signOut } from 'firebase/auth';
+// import { doc, updateDoc } from 'firebase/firestore';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const PrivateRoute = ({ component: Component, ...props }) => {
+		const { user } = useContext(AuthContext);
+		return user ? <Outlet {...props} /> : <Navigate to="/signin" />;
+	};
+
+
+
+	return (
+		<AuthProvider>
+			<BrowserRouter>
+				<Navbar />
+				<Routes>
+					<Route
+						path="/signup"
+						element={<SignUp />}
+					/>
+					<Route
+						path="/signin"
+						element={<SignIn />}
+					/>
+					<Route element={<PrivateRoute />}>
+						<Route
+							path="/"
+							element={<Home />}
+						/>
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route
+							path="/profile"
+							element={<Profile />}
+						/>
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</AuthProvider>
+	);
+};
 
 export default App;

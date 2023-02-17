@@ -1,0 +1,49 @@
+.profile {
+	display: flex;
+	width: 350px;
+	margin: 20vh auto;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid blue; */
+	border-radius: 30px;
+    color: white;
+	background-color: rgb(115, 66, 192);
+    font-weight: 100;
+}
+
+.image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+	border-radius: 50px;
+	border: 1px solid rgb(255, 255, 255);
+	cursor: pointer;
+}
+
+.detail {
+	display: flex;
+	align-items: left;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.detail > * {
+	margin-bottom: 10px;
+}
+
+.detail > h3 {
+	text-transform: lowercase;
+	font-size: small;
+}
+
+.detail > p {
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+hr {
+	background-color: rgb(95, 189, 95);
+}
