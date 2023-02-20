@@ -54,7 +54,7 @@ const Home = () => {
 		setChat(user);
 		// console.log(user);
 		const user2 = user.uid;
-		const id =  user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+		const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
 		const messageRef = collection(db, 'messages', id, 'chat');
 		const q = query(messageRef, orderBy('createAt', 'asc'));
 		onSnapshot(q, (querySnapshot) => {
@@ -75,7 +75,7 @@ const Home = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const user2 = chat.uid;
-		const id =user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+		const id = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
 		await addDoc(collection(db, 'messages', id, 'chat'), {
 			text,
 			from: user1,
@@ -110,12 +110,12 @@ const Home = () => {
 			</div>
 			<div className="chatcontent">
 				{chat ? (
-					<div >
+					<div>
 						{/* //--------------------username------------------ */}
-						<div className='chatname'>{chat.name}</div>
+						<div className="chatname">{chat.name}</div>
 
 						{/* //----------------messages--------------------------- */}
-						<div className='messagesdiv'>
+						<div className="messagesdiv">
 							{msgs.length
 								? msgs.map((msg, i) => {
 										return (
@@ -130,7 +130,7 @@ const Home = () => {
 						</div>
 
 						{/* //-----------------sending Mesages----------------  */}
-						<div className='inputFields'>
+						<div className="inputFields">
 							<MessageSend
 								handleSubmit={handleSubmit}
 								text={text}
