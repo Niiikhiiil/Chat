@@ -20,13 +20,6 @@ import AuthProvider, { AuthContext } from './context/auth';
 // import { doc, updateDoc } from 'firebase/firestore';
 
 const App = () => {
-	const PrivateRoute = ({ component: Component, ...props }) => {
-		const { user } = useContext(AuthContext);
-		return user ? <Outlet {...props} /> : <Navigate to="/signin" />;
-	};
-
-
-
 	return (
 		<AuthProvider>
 			<BrowserRouter>
@@ -56,6 +49,11 @@ const App = () => {
 			</BrowserRouter>
 		</AuthProvider>
 	);
+};
+
+const PrivateRoute = ({ component: Component, ...props }) => {
+	const { user } = useContext(AuthContext);
+	return user ? <Outlet {...props} /> : <Navigate to="/signin" />;
 };
 
 export default App;

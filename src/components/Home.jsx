@@ -16,7 +16,7 @@ import {
 import User from './User';
 import MessageSend from './MessageSend';
 import Messages from './Messages';
-import '../styles/Home.css';
+
 
 const Home = () => {
 	// users for sidebar users

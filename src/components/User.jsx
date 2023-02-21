@@ -1,7 +1,6 @@
 import { onSnapshot, doc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { db } from '../Firebase';
-import '../styles/User.css';
 
 const User = ({ user, selectUser, user1 }) => {
 	const user2 = user?.uid;
@@ -15,7 +14,6 @@ const User = ({ user, selectUser, user1 }) => {
 		return () => unsub();
 	}, []);
 
-
 	return (
 		<div
 			onClick={() => selectUser(user)}
@@ -23,18 +21,23 @@ const User = ({ user, selectUser, user1 }) => {
 			className="user"
 		>
 			<div>
-				{user.name}
+				<span>{user.name}</span>
 				{data?.from !== user1 && data?.unread && (
 					<small className="">new</small>
 				)}
-				<small>{user?.online ? 'online' : 'offline'}</small>
+				<small className={user?.online ? 'online' : null}>
+					{user?.online ? 'online' : 'offline'}
+				</small>
+
+				{data && (
+					<p>
+						<p>
+							<span>{data?.from === user1 ? 'me:' : null}</span>
+							{data.text}
+						</p>
+					</p>
+				)}
 			</div>
-			{data && (
-				<p>
-					{data?.from === user1 ? 'me:' : null}
-					<strong>{data.text}</strong>
-				</p>
-			)}
 		</div>
 	);
 };

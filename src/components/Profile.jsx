@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../Firebase';
 import { getDoc, doc } from 'firebase/firestore';
-import "../styles/Profile.css"
+
 const Profile = () => {
 	const [user, setUser] = useState();
 
@@ -12,7 +12,7 @@ const Profile = () => {
 	}, []);
 
 	return user ? (
-		<div className='profile'>
+		<div className='profilePage'>
 			<div className='image'>
 				<img
 					

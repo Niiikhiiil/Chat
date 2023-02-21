@@ -50,7 +50,7 @@ const SignIn = () => {
 		}
 	};
 	return (
-		<section>
+		<section className='siginsection'>
 			<h3>Log In</h3>
 			<form onSubmit={handleSubmit}>
 				<div>
@@ -73,8 +73,8 @@ const SignIn = () => {
 				</div>
 				{error ? <p>{error}</p> : null}
 				<div>
-					<button disabled={loading}>
-						{loading ? 'Please wait...' : 'Sign IN'}
+					<button disabled={loading} className="signIn">
+						{loading ? 'Please wait...' : 'Sign In'}
 					</button>
 				</div>
 			</form>

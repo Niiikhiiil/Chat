@@ -56,7 +56,7 @@ const SignUp = () => {
     }
   };
   return (
-    <section>
+    <section className="signupsection">
       <h3>Create A New Account</h3>
       <form  onSubmit={handleSubmit}>
         <div >
@@ -83,7 +83,7 @@ const SignUp = () => {
         </div>
         {error ? <p >{error}</p> : null}
         <div >
-          <button  disabled={loading}>
+          <button  disabled={loading} className="signUp">
             {loading ? "Creating ..." : "Sign Up"}
           </button>
         </div>

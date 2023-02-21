@@ -8,6 +8,7 @@ const MessageSend = ({ handleSubmit, text, setText }) => {
 					type="text"
 					value={text}
 					onChange={(e) => setText(e.target.value)}
+					
 				/>
 				<button type="submit" >Send</button>
 			</form>

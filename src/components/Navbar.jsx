@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Navbar.css';
+
 import { auth, db } from '../Firebase';
 import { signOut } from 'firebase/auth';
 import { updateDoc, doc, serverTimestamp } from 'firebase/firestore';
@@ -19,13 +19,15 @@ const Navbar = () => {
 	};
 	return (
 		<nav className="nav">
-			<h2>
-				<Link to="/">Chat</Link>
-			</h2>
+			<div>
+				<h2>
+					<Link to="/">Chat</Link>
+				</h2>
+			</div>
 			<div>
 				{user ? (
 					<>
-						<Link to="/profile">Profile</Link>
+						<Link to="/profile" className='profile'>Profile</Link>
 						<button
 							type="submit"
 							onClick={handleSignOut}
@@ -36,8 +38,8 @@ const Navbar = () => {
 					</>
 				) : (
 					<>
-						<Link to="/signup">Sign Up</Link>
-						<Link to="/signin">Sign in</Link>
+						<Link to="/signup" className='signUp'>Sign Up</Link>
+						<Link to="/signin" className='signIn'>Sign in</Link>
 					</>
 				)}
 			</div>

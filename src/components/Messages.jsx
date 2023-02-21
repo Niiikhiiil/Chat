@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Moment from 'react-moment';
-import '../styles/Messages.css';
+
 
 const Messages = ({ msg, user1 }) => {
 	const scrollRef = useRef();
@@ -10,14 +10,16 @@ const Messages = ({ msg, user1 }) => {
 	return (
 		<div
 			ref={scrollRef}
-			className={`messages ${msg.from === user1 ? 'own' : 'left'}`}
+			className={`messages 
+			${msg.from === user1 ? 'own' : 'left'} 
+			`}
 		>
-			<p>
-				{msg.from === user1 ? <small>Me:</small> : null}
-				<span className={`${msg.from===user1?null: "leftText"}`}>{msg.text}</span>
+			<p  className={`${msg.from===user1?'own' : 'left'}`}>
+				{/* {msg.from === user1 ? <small>Me:</small> : null} */}
+				<span>{msg.text}</span>
 				<br />
 				<small>
-					<Moment fromNow>{msg.createAt.toDate()}</Moment>
+					<Moment fromNow className='time'>{msg.createAt.toDate()}</Moment>
 				</small>
 			</p>
 		</div>
